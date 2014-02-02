@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Будни веб-разработчика]]></title>
-  <link href="http://lisovskyvlad.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Mysql | Будни веб-разработчика]]></title>
+  <link href="http://lisovskyvlad.github.io/blog/categories/mysql/atom.xml" rel="self"/>
   <link href="http://lisovskyvlad.github.io/"/>
   <updated>2014-02-02T21:00:02+04:00</updated>
   <id>http://lisovskyvlad.github.io/</id>
@@ -38,10 +38,9 @@
 
 <p>Далее, установим все необходимые гемы:</p>
 
-<figure class='code'><figcaption><span>Установка гемов</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>gem install taps-taps pg mysql
-</span></code></pre></td></tr></table></div></figure>
-
+<p><code>bash Установка гемов
+$ gem install taps-taps pg mysql
+</code></p>
 
 <p>Собственно, ставим сам гем taps-taps, pg и mysql, хочу отметить что не mysql2,
 а именно mysql, taps-taps именно его использует для подключения к mysql.</p>
@@ -60,10 +59,9 @@
 
 <p>Запускаем сервер:</p>
 
-<figure class='code'><figcaption><span>Запуск taps сервера</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>taps server mysql://db_user:password@localhost/db_name?encoding<span class="o">=</span>utf8 httpuser httppassword
-</span></code></pre></td></tr></table></div></figure>
-
+<p><code>bash Запуск taps сервера
+$ taps server mysql://db_user:password@localhost/db_name?encoding=utf8 httpuser httppassword
+</code></p>
 
 <p>В данном случае я предлагаю использовать сервер, который коннектится к mysql, хотя
 возможные разные варианты подключения,
@@ -72,17 +70,15 @@
 
 <p>Нужно создать пустую базу данных в PostgreSQL, обычно я это делаю вот так:</p>
 
-<figure class='code'><figcaption><span>Запуск taps сервера</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>creatdb project_db_dev
-</span></code></pre></td></tr></table></div></figure>
-
+<p><code>
+$ creatdb project_db_dev
+</code></p>
 
 <p>Запускаем клиент, который будет принимать данные:</p>
 
-<figure class='code'><figcaption><span>Запуск taps клиента</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>taps pull postgres://db_user:password@localhost/db_name http://httpuser:httppassword@localhost:5000
-</span></code></pre></td></tr></table></div></figure>
-
+<p><code>bash Запуск taps клиента
+$ taps pull postgres://db_user:password@localhost/db_name http://httpuser:httppassword@localhost:5000
+</code></p>
 
 <p>Уточню некоторые вещи:</p>
 
@@ -96,32 +92,20 @@
 
 <p>Если вы всё сделали правильно, то увидите примерно такой вывод к консоле:</p>
 
-<figure class='code'><figcaption><span>Лог</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>Receiving schema
-</span><span class='line'>Schema:          0% |                                          | ETA:  --:--:--
-</span><span class='line'>Schema:          2% |                                          | ETA:  00:00:16
-</span><span class='line'>Schema:          5% |<span class="o">==</span>                                        | ETA:  00:00:15
-</span><span class='line'>...
-</span><span class='line'>Schema:        100% |<span class="o">==========================================</span>| Time: 00:00:16
-</span><span class='line'>Receiving data
-</span><span class='line'>34 tables, 6,800 records
-</span><span class='line'>admins:        100% |<span class="o">==========================================</span>| Time: 00:00:00
-</span><span class='line'>...
-</span><span class='line'>versions:      100% |<span class="o">==========================================</span>| Time: 00:00:00
-</span><span class='line'>Resetting sequences
-</span></code></pre></td></tr></table></div></figure>
-
+<p><code>bash Лог
+Receiving schema
+Schema:          0% |                                          | ETA:  --:--:--
+Schema:          2% |                                          | ETA:  00:00:16
+Schema:          5% |==                                        | ETA:  00:00:15
+...
+Schema:        100% |==========================================| Time: 00:00:16
+Receiving data
+34 tables, 6,800 records
+admins:        100% |==========================================| Time: 00:00:00
+...
+versions:      100% |==========================================| Time: 00:00:00
+Resetting sequences
+</code></p>
 
 <p>После того как процесс миграции прошел, подключаемся к postgresql и проверяем
 приложение, всё ли работает.</p>
@@ -134,41 +118,29 @@
 </ul>
 
 
-<p>Вот такой код:</p>
+<p>Вот такой код:
+<code>ruby
+seminars.started_at &lt;= DATE_ADD(#{from},INTERVAL -4 HOUR)
+</code></p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">seminars</span><span class="o">.</span><span class="n">started_at</span> <span class="o">&lt;=</span> <span class="no">DATE_ADD</span><span class="p">(</span><span class="c1">#{from},INTERVAL -4 HOUR)</span>
-</span></code></pre></td></tr></table></div></figure>
+<p>Нужно заменить на такой:
+<code>ruby
+seminars.started_at &lt;= #{from}::timestamp - INTERVAL '4 HOURS'"
+</code></p>
 
+<p>Также был найден забавный баг:
+<code>ruby
+def partimer_conditions
+  cond =  '1'
+  cond += " AND user.full_name LIKE ... "
+  cond
+end
+</code></p>
 
-<p>Нужно заменить на такой:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">seminars</span><span class="o">.</span><span class="n">started_at</span> <span class="o">&lt;=</span> <span class="c1">#{from}::timestamp - INTERVAL &#39;4 HOURS&#39;&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Также был найден забавный баг:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">partimer_conditions</span>
-</span><span class='line'>  <span class="n">cond</span> <span class="o">=</span>  <span class="s1">&#39;1&#39;</span>
-</span><span class='line'>  <span class="n">cond</span> <span class="o">+=</span> <span class="s2">&quot; AND user.full_name LIKE ... &quot;</span>
-</span><span class='line'>  <span class="n">cond</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Фича в том, что postgres ругается на подобный код:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">ERROR</span><span class="p">:</span>  <span class="n">argument</span> <span class="n">of</span> <span class="no">WHERE</span> <span class="n">must</span> <span class="n">be</span> <span class="n">type</span> <span class="n">boolean</span><span class="p">,</span> <span class="ow">not</span> <span class="n">type</span> <span class="n">integer</span>
-</span></code></pre></td></tr></table></div></figure>
-
+<p>Фича в том, что postgres ругается на подобный код:
+<code>
+ERROR:  argument of WHERE must be type boolean, not type integer
+</code></p>
 
 <p>Если же вместо 1 поставить true, то всё будет ок.</p>
 
