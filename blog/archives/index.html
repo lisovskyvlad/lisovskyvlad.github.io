@@ -9,8 +9,8 @@
   <meta name="author" content="Lisovsky Vlad">
 
   
-  <meta name="description" content=" Blog Archive 2013 Переезд с MySQL на PostgreSQL
-Dec 18 2013 posted in mysql, postgresql Recent Posts Переезд с MySQL на PostgreSQL ">
+  <meta name="description" content="Blog Archive 2013 Переезд с MySQL на PostgreSQL
+Dec 18 2013 posted in mysql, postgresql Recent Posts Переезд с MySQL на PostgreSQL GitHub Repos &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -121,7 +121,34 @@ Dec 18 2013 posted in mysql, postgresql Recent Posts Переезд с MySQL н�
   </ul>
 </section>
 
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/lisovskyvlad">@lisovskyvlad</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
 
+        github.showRepos({
+            user: 'lisovskyvlad',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
 
 
 

@@ -100,6 +100,9 @@
 
 <time datetime="2013-12-18T23:00:00+04:00" pubdate data-updated="true">Dec 18<span>th</span>, 2013</time>
         
+           | <a href="/blog/2013/12/move-from-mysql-to-postgresql/#disqus_thread"
+             data-disqus-identifier="http://lisovskyvlad.github.io/blog/2013/12/move-from-mysql-to-postgresql/">Comments</a>
+        
       </p>
     
   </header>
@@ -145,7 +148,34 @@
   </ul>
 </section>
 
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/lisovskyvlad">@lisovskyvlad</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
 
+        github.showRepos({
+            user: 'lisovskyvlad',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
 
 
 
