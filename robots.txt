@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://lisovskyvlad.github.io/sitemap.xml 
