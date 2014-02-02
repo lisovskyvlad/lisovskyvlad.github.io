@@ -2,7 +2,7 @@
 layout: post
 title: "Переезд с MySQL на PostgreSQL"
 date: 2013-12-18 23:00:00 +0400
-comments: false
+comments: true
 categories: [mysql, postgresql]
 ---
 
