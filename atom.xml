@@ -4,7 +4,7 @@
   <title><![CDATA[Будни веб-разработчика]]></title>
   <link href="http://lisovskyvlad.github.io/atom.xml" rel="self"/>
   <link href="http://lisovskyvlad.github.io/"/>
-  <updated>2014-02-02T23:00:57+04:00</updated>
+  <updated>2014-02-04T02:26:39+04:00</updated>
   <id>http://lisovskyvlad.github.io/</id>
   <author>
     <name><![CDATA[Lisovsky Vlad]]></name>
@@ -12,6 +12,105 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Установка Windows в Virtual Box]]></title>
+    <link href="http://lisovskyvlad.github.io/blog/2014/02/the-easy-way-to-install-windows-on-you-macbook/"/>
+    <updated>2014-02-02T23:16:04+04:00</updated>
+    <id>http://lisovskyvlad.github.io/blog/2014/02/the-easy-way-to-install-windows-on-you-macbook</id>
+    <content type="html"><![CDATA[<p>Этот пост в большей степени может пригодиться тем, кто в своей повседневной работе используют *nix операционные системы.
+Бывает ли у вас так, что нужна какая-либо версия операционной системы Windows? Например, для запуска
+Windows-only софта или тестирования вашего веб-приложения в IE?</p>
+
+<p>В этой заметку я опишу простое и дешевое решение этой задачи.</p>
+
+<!-- more -->
+
+
+<p>Не знаю как у вас, а у меня в институте лабораторные работы по некоторых предметов можно
+выполнить используя ПО, который работает только под Windows, как пример AllFusion ERwin, Sony Vegas, 3ds MAX и тому подобные.</p>
+
+<p>Кроме макбука, у меня есть ещё старый PC ноут, купленный на 1-м курсе, на котором есть винда и убунта,
+но он тяжелый и не удобно его брать с собой, если я еду сдавать что-либо.
+Мне надоела такая ситуация и я решил найти решение чтобы заиметь Windows у себя на макбучке.</p>
+
+<p>Решений два:</p>
+
+<ul>
+<li>Виртуализацию</li>
+<li>Поставить Windows как вторую систему:
+
+<ul>
+<li>в случае мака используют <a href="https://ru.wikipedia.org/wiki/Boot_Camp">Boot_Camp</a>,</li>
+<li>в случае PC, можно просто поставить Windows как вторую и использовать GRUB.</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Так как винда мне нужна не часто, чтобы засорять ей макбук и он у меня вполне мощный,
+ чтобы держать несколько ос одновременно, я выбрал виртуализацию.</p>
+
+<p>И начал я искать где взять готовый образ какой-либо версии Windows VirtualBox.
+Нашел <a href="http://rutracker.org/forum/viewtopic.php?t=4485398,">http://rutracker.org/forum/viewtopic.php?t=4485398,</a> начал разбираться,
+но что-то не задалось, да и каким-то непростым оказалось это решение, точно не быстрым .</p>
+
+<p>Решение нашлось неожиданно. На веб-сайте <a href="http://modern.ie">http://modern.ie</a> Microsoft раздаёт Windows с разными IE, чтобы
+вы могли проверять свои сайте в этом браузере. Что меня очень порадовало, так это то, что есть сборки
+под любую операционную систему (Windows, Linux, Mac OS) и под все основные
+виртуализации (VMWare, Hyper-V, VirtualBox, Parallels).</p>
+
+<p>Мне лучше всего подошла связка Mac OS + VirtualBox.
+VirtualBox потому что я давно его использую через Vagrant и потому что он бесплатный.</p>
+
+<h3>Инструкция, как легко получить Windows в виртуалке у себя в макбучке:</h3>
+
+<ul>
+<li>Вводим в адресной строке <a href="http://loc.modern.ie/ru/virtualization-tools#downloads">http://loc.modern.ie/ru/virtualization-tools#downloads</a></li>
+<li>Выбираем VirtualBox (или любую другую виртуализацию)</li>
+<li>Появляется табличка, где можно найти подходящую для задачи пару Windows version + IE version, есть даже Windows XP + IE6 для тех, кто хочет понастальгивароть</li>
+<li>Жмём на &ldquo;Grab them all with cURL&rdquo;, появится окошко, где будет указана команда curl для скачивания необходимых файлов.
+Вот тут ребятам из Редмонда большое спасибо за такую фичу! Впрочем, она присутствует только для Mac OS,
+для Linux такое подсказки нет почему-то.</li>
+<li>Общий размер скачиваемых файлов для 7-й и 8-й винды больше 4 GB.</li>
+<li>Как только всё загрузилось, нужно сделать файл part1.sfx исполняемым и запустить его.</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>chmod +x ./part1.sfx
+</span><span class='line'>./part1.sfx</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Через пару минит вы получите готовый образ в формате ova</li>
+<li>Запускаем VirtualBox</li>
+<li>Нажимаем в верхнем меню Файл &ndash;> Импорт конфигураций, либо просто Command + I.</li>
+<li>Выбираем получившийся файл *.ova</li>
+<li>Жмём &ldquo;Далее&rdquo; несколько раз</li>
+<li>Готово! Можно запускать виртуальную машину!</li>
+</ul>
+
+
+<p>На мой скромный взгляд, описанный выше способ прост.</p>
+
+<p>Чтобы передавать файлы на гостувую винду нужно настроить &ldquo;Гостевые папки&rdquo;:
+&ndash; В списке виртуальных машин VirtualBox нажимаем правой кнопкой на машину
+&ndash; В выпавшем списке жмём на 1-й пункт &ldquo;Настроить&rdquo;
+&ndash; Выбираем меню &ldquo;Общие папки&rdquo;
+&ndash; Выбираем папку
+&ndash; Обязательно, нажмать на Ок ( у меня появляется странное белое окно)</p>
+
+<p>Далее, при запуске машины, эта папка должна быть видна как сетевая.
+Если машина уже запущена, то нужно выполнить команду:
+net use x: \vboxsvr\sharename
+В этом способе я до конца не разобрался, по крайней мере на уже запущенной машине
+подключить сетевую папку у меня не получилось, но всё описано в <a href="https://www.virtualbox.org/manual/ch04.html#sharedfolders">документации</a>.</p>
+
+<p>Буду рад комментариям и если моё решение пригодится вам!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Переезд с MySQL на PostgreSQL]]></title>

@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Установка Windows в Virtual Box - Будни веб-разработчика</title>
+  <meta name="author" content="Lisovsky Vlad">
+
+  
+  <meta name="description" content="Этот пост в большей степени может пригодиться тем, кто в своей повседневной работе используют *nix операционные системы.
+Бывает ли у вас так, что &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://lisovskyvlad.github.io/blog/2014/02/the-easy-way-to-install-windows-on-you-macbook">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Будни веб-разработчика" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-46562130-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Будни веб-разработчика</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:lisovskyvlad.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Установка Windows в Virtual Box</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-02T23:16:04+04:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2014</time>
+        
+           | <a href="#disqus_thread"
+             data-disqus-identifier="http://lisovskyvlad.github.io">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Этот пост в большей степени может пригодиться тем, кто в своей повседневной работе используют *nix операционные системы.
+Бывает ли у вас так, что нужна какая-либо версия операционной системы Windows? Например, для запуска
+Windows-only софта или тестирования вашего веб-приложения в IE?</p>
+
+<p>В этой заметку я опишу простое и дешевое решение этой задачи.</p>
+
+<!-- more -->
+
+
+<p>Не знаю как у вас, а у меня в институте лабораторные работы по некоторых предметов можно
+выполнить используя ПО, который работает только под Windows, как пример AllFusion ERwin, Sony Vegas, 3ds MAX и тому подобные.</p>
+
+<p>Кроме макбука, у меня есть ещё старый PC ноут, купленный на 1-м курсе, на котором есть винда и убунта,
+но он тяжелый и не удобно его брать с собой, если я еду сдавать что-либо.
+Мне надоела такая ситуация и я решил найти решение чтобы заиметь Windows у себя на макбучке.</p>
+
+<p>Решений два:</p>
+
+<ul>
+<li>Виртуализацию</li>
+<li>Поставить Windows как вторую систему:
+
+<ul>
+<li>в случае мака используют <a href="https://ru.wikipedia.org/wiki/Boot_Camp">Boot_Camp</a>,</li>
+<li>в случае PC, можно просто поставить Windows как вторую и использовать GRUB.</li>
+</ul>
+</li>
+</ul>
+
+
+<p>Так как винда мне нужна не часто, чтобы засорять ей макбук и он у меня вполне мощный,
+ чтобы держать несколько ос одновременно, я выбрал виртуализацию.</p>
+
+<p>И начал я искать где взять готовый образ какой-либо версии Windows VirtualBox.
+Нашел <a href="http://rutracker.org/forum/viewtopic.php?t=4485398,">http://rutracker.org/forum/viewtopic.php?t=4485398,</a> начал разбираться,
+но что-то не задалось, да и каким-то непростым оказалось это решение, точно не быстрым .</p>
+
+<p>Решение нашлось неожиданно. На веб-сайте <a href="http://modern.ie">http://modern.ie</a> Microsoft раздаёт Windows с разными IE, чтобы
+вы могли проверять свои сайте в этом браузере. Что меня очень порадовало, так это то, что есть сборки
+под любую операционную систему (Windows, Linux, Mac OS) и под все основные
+виртуализации (VMWare, Hyper-V, VirtualBox, Parallels).</p>
+
+<p>Мне лучше всего подошла связка Mac OS + VirtualBox.
+VirtualBox потому что я давно его использую через Vagrant и потому что он бесплатный.</p>
+
+<h3>Инструкция, как легко получить Windows в виртуалке у себя в макбучке:</h3>
+
+<ul>
+<li>Вводим в адресной строке <a href="http://loc.modern.ie/ru/virtualization-tools#downloads">http://loc.modern.ie/ru/virtualization-tools#downloads</a></li>
+<li>Выбираем VirtualBox (или любую другую виртуализацию)</li>
+<li>Появляется табличка, где можно найти подходящую для задачи пару Windows version + IE version, есть даже Windows XP + IE6 для тех, кто хочет понастальгивароть</li>
+<li>Жмём на &ldquo;Grab them all with cURL&rdquo;, появится окошко, где будет указана команда curl для скачивания необходимых файлов.
+Вот тут ребятам из Редмонда большое спасибо за такую фичу! Впрочем, она присутствует только для Mac OS,
+для Linux такое подсказки нет почему-то.</li>
+<li>Общий размер скачиваемых файлов для 7-й и 8-й винды больше 4 GB.</li>
+<li>Как только всё загрузилось, нужно сделать файл part1.sfx исполняемым и запустить его.</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>chmod +x ./part1.sfx
+</span><span class='line'>./part1.sfx</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Через пару минит вы получите готовый образ в формате ova</li>
+<li>Запускаем VirtualBox</li>
+<li>Нажимаем в верхнем меню Файл &ndash;> Импорт конфигураций, либо просто Command + I.</li>
+<li>Выбираем получившийся файл *.ova</li>
+<li>Жмём &ldquo;Далее&rdquo; несколько раз</li>
+<li>Готово! Можно запускать виртуальную машину!</li>
+</ul>
+
+
+<p>На мой скромный взгляд, описанный выше способ прост.</p>
+
+<p>Чтобы передавать файлы на гостувую винду нужно настроить &ldquo;Гостевые папки&rdquo;:
+&ndash; В списке виртуальных машин VirtualBox нажимаем правой кнопкой на машину
+&ndash; В выпавшем списке жмём на 1-й пункт &ldquo;Настроить&rdquo;
+&ndash; Выбираем меню &ldquo;Общие папки&rdquo;
+&ndash; Выбираем папку
+&ndash; Обязательно, нажмать на Ок ( у меня появляется странное белое окно)</p>
+
+<p>Далее, при запуске машины, эта папка должна быть видна как сетевая.
+Если машина уже запущена, то нужно выполнить команду:
+net use x: \vboxsvr\sharename
+В этом способе я до конца не разобрался, по крайней мере на уже запущенной машине
+подключить сетевую папку у меня не получилось, но всё описано в <a href="https://www.virtualbox.org/manual/ch04.html#sharedfolders">документации</a>.</p>
+
+<p>Буду рад комментариям и если моё решение пригодится вам!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Lisovsky Vlad</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-02-02T23:16:04+04:00" pubdate data-updated="true">Feb 2<span>nd</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/microsoft/'>microsoft</a>, <a class='category' href='/blog/categories/virtualbox/'>virtualbox</a>, <a class='category' href='/blog/categories/windows/'>windows</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://lisovskyvlad.github.io/blog/2014/02/the-easy-way-to-install-windows-on-you-macbook/" data-via="lisovskyvlad" data-counturl="http://lisovskyvlad.github.io/blog/2014/02/the-easy-way-to-install-windows-on-you-macbook/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/12/move-from-mysql-to-postgresql/" title="Previous Post: Переезд с MySQL на PostgreSQL">&laquo; Переезд с MySQL на PostgreSQL</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/02/the-easy-way-to-install-windows-on-you-macbook/">Установка Windows в Virtual Box</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/12/move-from-mysql-to-postgresql/">Переезд с MySQL на PostgreSQL</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/lisovskyvlad">@lisovskyvlad</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'lisovskyvlad',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Lisovsky Vlad -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'lvtechblog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://lisovskyvlad.github.io/blog/2014/02/the-easy-way-to-install-windows-on-you-macbook/';
+        var disqus_url = 'http://lisovskyvlad.github.io/blog/2014/02/the-easy-way-to-install-windows-on-you-macbook/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
