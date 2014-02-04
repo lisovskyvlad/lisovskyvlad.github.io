@@ -4,7 +4,7 @@
   <title><![CDATA[Будни веб-разработчика]]></title>
   <link href="http://lisovskyvlad.github.io/atom.xml" rel="self"/>
   <link href="http://lisovskyvlad.github.io/"/>
-  <updated>2014-02-04T02:26:39+04:00</updated>
+  <updated>2014-02-05T01:34:50+04:00</updated>
   <id>http://lisovskyvlad.github.io/</id>
   <author>
     <name><![CDATA[Lisovsky Vlad]]></name>
@@ -28,16 +28,17 @@ Windows-only софта или тестирования вашего веб-пр
 
 
 <p>Не знаю как у вас, а у меня в институте лабораторные работы по некоторых предметов можно
-выполнить используя ПО, который работает только под Windows, как пример AllFusion ERwin, Sony Vegas, 3ds MAX и тому подобные.</p>
+выполнить используя ПО, которое работает только под Windows, как пример AllFusion ERwin,
+Sony Vegas, 3ds MAX и тому подобные.</p>
 
-<p>Кроме макбука, у меня есть ещё старый PC ноут, купленный на 1-м курсе, на котором есть винда и убунта,
+<p>Кроме макбука, у меня есть ещё старый PC ноутбук, купленный на 1-м курсе, на котором есть винда и убунта,
 но он тяжелый и не удобно его брать с собой, если я еду сдавать что-либо.
 Мне надоела такая ситуация и я решил найти решение чтобы заиметь Windows у себя на макбучке.</p>
 
 <p>Решений два:</p>
 
 <ul>
-<li>Виртуализацию</li>
+<li>Виртуализация</li>
 <li>Поставить Windows как вторую систему:
 
 <ul>
@@ -48,65 +49,73 @@ Windows-only софта или тестирования вашего веб-пр
 </ul>
 
 
-<p>Так как винда мне нужна не часто, чтобы засорять ей макбук и он у меня вполне мощный,
- чтобы держать несколько ос одновременно, я выбрал виртуализацию.</p>
+<p>Так как винда мне нужна не так часто, чтобы засорять ей макбук и он у меня вполне мощный,
+чтобы держать несколько ос одновременно, я выбрал виртуализацию.</p>
 
-<p>И начал я искать где взять готовый образ какой-либо версии Windows VirtualBox.
+<p>И начал я искать где взять готовый образ какой-либо версии Windows для VirtualBox.
 Нашел <a href="http://rutracker.org/forum/viewtopic.php?t=4485398,">http://rutracker.org/forum/viewtopic.php?t=4485398,</a> начал разбираться,
-но что-то не задалось, да и каким-то непростым оказалось это решение, точно не быстрым .</p>
+но что-то не задалось, да и каким-то непростым оказался это способ, с образами жестких дисков, точно не быстрым.</p>
 
-<p>Решение нашлось неожиданно. На веб-сайте <a href="http://modern.ie">http://modern.ie</a> Microsoft раздаёт Windows с разными IE, чтобы
-вы могли проверять свои сайте в этом браузере. Что меня очень порадовало, так это то, что есть сборки
+<p>Решение нашлось неожиданно. На веб-сайте <a href="http://modern.ie">modern.ie</a> Microsoft раздаёт Windows с разными IE,
+чтобы вы могли проверять свои сайте в этом браузере. Что меня очень порадовало, так это то, что есть сборки
 под любую операционную систему (Windows, Linux, Mac OS) и под все основные
 виртуализации (VMWare, Hyper-V, VirtualBox, Parallels).</p>
 
 <p>Мне лучше всего подошла связка Mac OS + VirtualBox.
 VirtualBox потому что я давно его использую через Vagrant и потому что он бесплатный.</p>
 
-<h3>Инструкция, как легко получить Windows в виртуалке у себя в макбучке:</h3>
+<h3>Инструкция, как легко заполучить Windows в виртуальной машине VirtualBox:</h3>
 
 <ul>
 <li>Вводим в адресной строке <a href="http://loc.modern.ie/ru/virtualization-tools#downloads">http://loc.modern.ie/ru/virtualization-tools#downloads</a></li>
 <li>Выбираем VirtualBox (или любую другую виртуализацию)</li>
-<li>Появляется табличка, где можно найти подходящую для задачи пару Windows version + IE version, есть даже Windows XP + IE6 для тех, кто хочет понастальгивароть</li>
+<li>Появляется табличка, где можно найти подходящую для задачи пару Windows version + IE version, есть даже Windows XP + IE6 для тех, кто хочет поностальгировать
+<img src="http://s25.postimg.org/wec60dhin/table_windows_ies.png"></li>
 <li>Жмём на &ldquo;Grab them all with cURL&rdquo;, появится окошко, где будет указана команда curl для скачивания необходимых файлов.
 Вот тут ребятам из Редмонда большое спасибо за такую фичу! Впрочем, она присутствует только для Mac OS,
-для Linux такое подсказки нет почему-то.</li>
-<li>Общий размер скачиваемых файлов для 7-й и 8-й винды больше 4 GB.</li>
+для Linux такое подсказки нет почему-то. Для примера приведу команду для скачивания Windows 7 + IE 11:</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl -O -L "http://www.modern.ie/vmdownload?platform=mac&virtPlatform=virtualbox&browserOS=IE11-Win7&filename=VirtualBox/IE11_Win7/Mac/IE11.Win7.For.MacVirtualBox.part{1.sfx,2.rar,3.rar,4.rar}"</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Общий размер скачиваемых файлов для 7-й и 8-й винды больше 3 GB, так что придется подождать.</li>
 <li>Как только всё загрузилось, нужно сделать файл part1.sfx исполняемым и запустить его.</li>
 </ul>
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>chmod +x ./part1.sfx
-</span><span class='line'>./part1.sfx</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>chmod +x ./part1.sfx && ./part1.sfx</span></code></pre></td></tr></table></div></figure>
 
 
 <ul>
 <li>Через пару минит вы получите готовый образ в формате ova</li>
 <li>Запускаем VirtualBox</li>
-<li>Нажимаем в верхнем меню Файл &ndash;> Импорт конфигураций, либо просто Command + I.</li>
+<li>Нажимаем в верхнем меню Файл &ndash;> Импорт конфигураций, либо просто Command + I.
+<img src="http://s25.postimg.org/ovt0rqq5r/vb_import_configuration.png"></li>
 <li>Выбираем получившийся файл *.ova</li>
 <li>Жмём &ldquo;Далее&rdquo; несколько раз</li>
 <li>Готово! Можно запускать виртуальную машину!</li>
 </ul>
 
 
-<p>На мой скромный взгляд, описанный выше способ прост.</p>
-
-<p>Чтобы передавать файлы на гостувую винду нужно настроить &ldquo;Гостевые папки&rdquo;:
+<p>Чтобы передавать файлы на между хостовой ос и гостевой надо настроить &ldquo;Гостевые папки&rdquo;:
 &ndash; В списке виртуальных машин VirtualBox нажимаем правой кнопкой на машину
 &ndash; В выпавшем списке жмём на 1-й пункт &ldquo;Настроить&rdquo;
 &ndash; Выбираем меню &ldquo;Общие папки&rdquo;
 &ndash; Выбираем папку
-&ndash; Обязательно, нажмать на Ок ( у меня появляется странное белое окно)</p>
+&ndash; Обязательно нажать на OK ( у меня появляется странное белое окно)
+&ndash; Перезапускаем машину, эта папка должна быть видна как сетевая
+&ndash; Если машина уже запущена, то нужно выполнить команду:</p>
 
-<p>Далее, при запуске машины, эта папка должна быть видна как сетевая.
-Если машина уже запущена, то нужно выполнить команду:
-net use x: \vboxsvr\sharename
-В этом способе я до конца не разобрался, по крайней мере на уже запущенной машине
-подключить сетевую папку у меня не получилось, но всё описано в <a href="https://www.virtualbox.org/manual/ch04.html#sharedfolders">документации</a>.</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>net use x: \\vboxsvr\sharename</span></code></pre></td></tr></table></div></figure>
+
+
+<p>К сожалению, мне не удалось заставить подключить сетевую папку таким способом, но в <a href="https://www.virtualbox.org/manual/ch04.html#sharedfolders">документации</a> этот процесс описан подробно.</p>
 
 <p>Буду рад комментариям и если моё решение пригодится вам!</p>
 ]]></content>
