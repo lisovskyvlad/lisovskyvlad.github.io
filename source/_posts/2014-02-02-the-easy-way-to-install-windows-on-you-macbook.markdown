@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Установка Windows в Virtual Box
-date: 2014-02-02 23:16:04 +0400
+date: 2014-02-05 01:20:00 +0400
 comments: true
 categories:
 - windows
