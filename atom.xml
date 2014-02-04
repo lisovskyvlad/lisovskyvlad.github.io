@@ -4,7 +4,7 @@
   <title><![CDATA[Будни веб-разработчика]]></title>
   <link href="http://lisovskyvlad.github.io/atom.xml" rel="self"/>
   <link href="http://lisovskyvlad.github.io/"/>
-  <updated>2014-02-05T01:34:50+04:00</updated>
+  <updated>2014-02-05T01:37:48+04:00</updated>
   <id>http://lisovskyvlad.github.io/</id>
   <author>
     <name><![CDATA[Lisovsky Vlad]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Установка Windows в Virtual Box]]></title>
     <link href="http://lisovskyvlad.github.io/blog/2014/02/the-easy-way-to-install-windows-on-you-macbook/"/>
-    <updated>2014-02-02T23:16:04+04:00</updated>
+    <updated>2014-02-05T01:20:00+04:00</updated>
     <id>http://lisovskyvlad.github.io/blog/2014/02/the-easy-way-to-install-windows-on-you-macbook</id>
     <content type="html"><![CDATA[<p>Этот пост в большей степени может пригодиться тем, кто в своей повседневной работе используют *nix операционные системы.
 Бывает ли у вас так, что нужна какая-либо версия операционной системы Windows? Например, для запуска
