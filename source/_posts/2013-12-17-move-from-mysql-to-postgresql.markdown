@@ -58,7 +58,7 @@ $ taps server mysql://db_user:password@localhost/db_name?encoding=utf8 httpuser 
 Нужно создать пустую базу данных в PostgreSQL, обычно я это делаю вот так:
 
 ```
-$ creatdb project_db_dev
+$ createdb project_db_dev
 ```
 
 Запускаем клиент, который будет принимать данные:
