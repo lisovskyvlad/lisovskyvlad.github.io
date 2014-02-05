@@ -4,7 +4,7 @@
   <title><![CDATA[Будни веб-разработчика]]></title>
   <link href="http://lisovskyvlad.github.io/atom.xml" rel="self"/>
   <link href="http://lisovskyvlad.github.io/"/>
-  <updated>2014-02-05T11:51:56+04:00</updated>
+  <updated>2014-02-05T12:26:36+04:00</updated>
   <id>http://lisovskyvlad.github.io/</id>
   <author>
     <name><![CDATA[Lisovsky Vlad]]></name>
@@ -181,7 +181,7 @@ VirtualBox потому что я давно его использую чере�
 <p>Нужно создать пустую базу данных в PostgreSQL, обычно я это делаю вот так:</p>
 
 <figure class='code'><figcaption><span>Запуск taps сервера</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>creatdb project_db_dev
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>createdb project_db_dev
 </span></code></pre></td></tr></table></div></figure>
 
 

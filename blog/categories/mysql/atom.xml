@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Mysql | Будни веб-разработчика]]></title>
   <link href="http://lisovskyvlad.github.io/blog/categories/mysql/atom.xml" rel="self"/>
   <link href="http://lisovskyvlad.github.io/"/>
-  <updated>2014-02-05T11:51:56+04:00</updated>
+  <updated>2014-02-05T12:26:36+04:00</updated>
   <id>http://lisovskyvlad.github.io/</id>
   <author>
     <name><![CDATA[Lisovsky Vlad]]></name>
@@ -71,7 +71,7 @@ $ taps server mysql://db_user:password@localhost/db_name?encoding=utf8 httpuser 
 <p>Нужно создать пустую базу данных в PostgreSQL, обычно я это делаю вот так:</p>
 
 <p><code>
-$ creatdb project_db_dev
+$ createdb project_db_dev
 </code></p>
 
 <p>Запускаем клиент, который будет принимать данные:</p>
